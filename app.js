@@ -1,7 +1,8 @@
-var inputArea = document.querySelector(".input-container");
-var translateBtn = document.querySelector(".translate-btn");
-var outputArea = document.querySelector(".output-container");
-
+var inputArea = document.querySelector("#input-text");
+var translateBtn = document.querySelector("#btn-translate");
+var outputArea = document.querySelector("#output-div");
+var flipContainer = document.querySelector(".flip-container");
+var btnReset = document.querySelector("#btn-reset");
 var serverUrl = "https://api.funtranslations.com/translate/morse.json";
 
 function urlGenerator(text) {
@@ -17,10 +18,21 @@ function doFetch(url) {
     } )
 }
 
-
 function inputHandler() {
-     var input = inputArea.value;
+  flipContainer.classList.add("flip-action");
+  translateBtn.classList.add("hide");
+  btnReset.classList.remove("hide");
+    var input = inputArea.value;
     outputArea.innerText = doFetch(urlGenerator(input))
 }
 
+function resetFn() {
+    flipContainer.classList.remove("flip-action");
+    translateBtn.classList.remove("hide");
+    btnReset.classList.add("hide");
+    outputArea.classList.remove("font-red");
+    inputArea.value = "";
+  }
+
 translateBtn.addEventListener("click", inputHandler);
+btnReset.addEventListener("click", resetFn);

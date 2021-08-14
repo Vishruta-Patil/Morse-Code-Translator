@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,28 @@
     <title>Morse Code Translator</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Morse Code </h1>
-    <textarea class="input-container" palceholder="Put your message here"></textarea>
-    <button class="translate-btn">Translate</button>
-    <div class="output-container"></div>
+    <div class="container">
+        <h1 class="header">Morse Code Translator</h1>
+        <div class="flip-container">
+            <div class="flip-container-inner">
+                <div class="flip-container-front">
+                    <h3>English Text</h3>
+                    <textarea class="input-text" id ="input-text"
+                        placeholder="Put your message here to translate to morse code"></textarea>
+                </div>
+                <div class="flip-container-back">
+                    <h3>Translated text</h3>
+                    <div id="output-div"></div>
+                </div>
+            </div>
+        </div>
+        <button class="button" id="btn-translate">Translate</button>
+        <button class=" button hide" id="btn-reset">Reset</button>
+    </div>
 
     <script src="app.js"></script>
 </body>
+
 </html>
